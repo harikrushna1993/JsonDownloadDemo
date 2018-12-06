@@ -9,7 +9,7 @@
 import UIKit
 
 class NetworkWrapper: NSObject {
-
+    
     class func makePostRequest(url:String,params: [String: Any] ,sucess: @escaping(( _ response: Data) -> Void),failure:  @escaping(( _ errMessage: String) -> Void)) {
         
         guard let urrl = URL(string: url) else {

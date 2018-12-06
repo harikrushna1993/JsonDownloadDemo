@@ -23,21 +23,13 @@ class EnterEmailVC: UIViewController {
         addGesture()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     // MARK: - Custom Methods
     
     func customizeUI() {
         activityIndicator.isHidden = true
     }
     
-    func addGesture() {
+    private func addGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tap)
     }

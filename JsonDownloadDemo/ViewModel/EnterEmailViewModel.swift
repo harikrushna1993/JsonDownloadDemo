@@ -14,7 +14,7 @@ protocol PersonDetailStoringDelegate: AnyObject {
 }
 
 class EnterEmailViewModel: NSObject {
-
+    
     let databaseWrapper = DataBaseWrapper.sharedInstance
     weak var delegate: PersonDetailStoringDelegate?
     
@@ -30,13 +30,13 @@ class EnterEmailViewModel: NSObject {
         NetworkWrapper.makePostRequest(url: ApiConstant.listUrl, params: param, sucess: { (response) in
             print(response)
             do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let result = try decoder.decode(PersonListModel.self, from: response)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let result = try decoder.decode(PersonListModel.self, from: response)
                 self.storeDataInLocal(list: result.items)
             } catch {
                 self.delegate?.errorInSaving(errMsg: "Something went wrong")
-                   print("parsing error")
+                print("parsing error")
             }
         }) { (errmsg) in
             self.delegate?.errorInSaving(errMsg: errmsg)
