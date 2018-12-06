@@ -18,7 +18,7 @@ class EnterEmailViewModel: NSObject {
     let databaseWrapper = DataBaseWrapper.sharedInstance
     weak var delegate: PersonDetailStoringDelegate?
     
-    func doValidation(text: String) -> Bool {
+    func isValidEmail(text: String) -> Bool {
         let emailRegExp = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest  = NSPredicate(format: "SELF MATCHES %@", emailRegExp)
         return emailTest.evaluate(with: text)
@@ -27,7 +27,7 @@ class EnterEmailViewModel: NSObject {
     func storeEmailId(email: String) {
         let param = ["emailId": email] as [String: Any]
         
-        NetworkWrapper.makePostRequest(url: ApiConstant.LISTURL, params: param, sucess: { (response) in
+        NetworkWrapper.makePostRequest(url: ApiConstant.listUrl, params: param, sucess: { (response) in
             print(response)
             do {
             let decoder = JSONDecoder()

@@ -80,7 +80,7 @@ class EnterEmailVC: UIViewController {
     
     // MARK: - UIBtn
     @IBAction func enterBtnAction(_ sender: Any) {
-        if enterEmailVM.doValidation(text: textfieldEmail.text!) {
+        if enterEmailVM.isValidEmail(text: textfieldEmail.text!) {
             showActivityIndicator(status: true)
             controlUserInteraction(status: false)
             enterEmailVM.storeEmailId(email: textfieldEmail.text!)

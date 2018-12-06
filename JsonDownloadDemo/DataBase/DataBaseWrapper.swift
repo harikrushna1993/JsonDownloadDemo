@@ -26,7 +26,6 @@ class DataBaseWrapper: NSObject {
         let entity =
             NSEntityDescription.entity(forEntityName: "Person",
                                        in: managedContext)!
-        
         let personDetailManagedObject = Person(entity: entity,
                                                insertInto: managedContext)
         personDetailManagedObject.firstName = personDetail.firstName

@@ -9,7 +9,7 @@
 import Foundation
 
 struct ApiConstant {
-    static let LISTURL = "http://surya-interview.appspot.com/list"
+    static let listUrl = "http://surya-interview.appspot.com/list"
 }
 
 struct Constants {
